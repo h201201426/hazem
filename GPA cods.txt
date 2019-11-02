@@ -1,0 +1,14 @@
+def reg(name,gpa):
+    if gpa<=70:
+        print("Sorry you cant register")
+    else:
+         print(" you cant register")
+
+reg("Nasser",7)         
+
+
+
+
+
+
+

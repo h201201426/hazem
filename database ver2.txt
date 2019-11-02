@@ -1,0 +1,225 @@
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 270729493
+Server version: 5.6.40-log Source distribution
+Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mahmood99$default  |
+| mahmood99$mydb     |
++--------------------+
+3 rows in set (6.03 sec)
+mysql> use mahmood99$mydb
+Database changed
+mysql> CREATE TABLE IF NOT EXISTS student (
+    -> stid INT(8) AUTO_INCREMENT PRIMARY KEY, 
+    -> stname VARCHAR(255) NOT NULL, 
+    -> stbdate DATE, 
+    -> stcol VARCHAR(255) NOT NULL, 
+    -> stgpa DECIMAL(3,3) NOT NULL, 
+    -> description TEXT, 
+    -> created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+mysql> show tables
+    -> ^Z^Z^C^C
+mysql> show tables;
++--------------------------+
+| Tables_in_mahmood99$mydb |
++--------------------------+
+| student                  |
++--------------------------+
+1 row in set (0.01 sec)
+mysql> INSERT INTO student(stname,stbdate,stcol,stgpa, description) VALUES('Nasser','2000-01-01','CAAS',3.89,'just testing');
+Query OK, 1 row affected, 1 warning (0.03 sec)
+mysql> select *
+    -> ^C^C
+mysql> select * from | student 
+    -> ^Z^C^C
+mysql> select * from student;
++------+--------+------------+-------+-------+--------------+---------------------+
+| stid | stname | stbdate    | stcol | stgpa | description  | created_at          |
++------+--------+------------+-------+-------+--------------+---------------------+
+|    1 | Nasser | 2000-01-01 | CAAS  | 0.999 | just testing | 2019-10-31 09:30:49 |
++------+--------+------------+-------+-------+--------------+---------------------+
+1 row in set (0.00 sec)
+
+mysql> INSERT INTO student(stname,stbdate,stcol,stgpa, description) VALUES
+    -> ('Salim', '2001-06-10','CAAS', 2.6, 'just testing'), 
+    -> ('Fatima', '2004-05-01','CAAS', 3.00, 'just testing'), 
+    -> ('Muna', '2004-05-06','CAAS' , 3.5, 'just testing');
+Query OK, 3 rows affected, 3 warnings (0.02 sec)
+Records: 3  Duplicates: 0  Warnings: 3
+
+mysql> 
+mysql> INSERT INTO student(stname,stbdate,stcol,stgpa, description) VALUES
+    -> ('Salim', '2001-06-10','CAAS', 2.6, 'just testing'), 
+    -> ('Fatima', '2004-05-01','CAAS', 3.00, 'just testing'), 
+    -> ('Muna', '2004-05-06','CAAS' , 3.5, 'just testing');
+Query OK, 3 rows affected, 3 warnings (0.00 sec)
+Records: 3  Duplicates: 0  Warnings: 3
+
+mysql> select * from student;
++------+--------+------------+-------+-------+--------------+---------------------+
+| stid | stname | stbdate    | stcol | stgpa | description  | created_at          |
++------+--------+------------+-------+-------+--------------+---------------------+
+|    1 | Nasser | 2000-01-01 | CAAS  | 0.999 | just testing | 2019-10-31 09:30:49 |
+|    2 | Salim  | 2001-06-10 | CAAS  | 0.999 | just testing | 2019-10-31 09:33:52 |
+|    3 | Fatima | 2004-05-01 | CAAS  | 0.999 | just testing | 2019-10-31 09:33:52 |
+|    4 | Muna   | 2004-05-06 | CAAS  | 0.999 | just testing | 2019-10-31 09:33:52 |
+|    5 | Salim  | 2001-06-10 | CAAS  | 0.999 | just testing | 2019-10-31 09:34:02 |
+|    6 | Fatima | 2004-05-01 | CAAS  | 0.999 | just testing | 2019-10-31 09:34:02 |
+|    7 | Muna   | 2004-05-06 | CAAS  | 0.999 | just testing | 2019-10-31 09:34:02 |
++------+--------+------------+-------+-------+--------------+---------------------+
+7 rows in set (0.00 sec)
+
+mysql> Drop from student(stname,stbdate,stcol,stgpa, description) VALUES
+    -> ('Salim', '2001-06-10','CAAS', 2.6, 'just testing'); 
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from student(stname,stbdate,stcol,stgpa, description) VALUES
+('Salim', '2001-06-' at line 1
+mysql> Delete from student(stname,stbdate,stcol,stgpa, description) VALUES
+    -> ('Salim', '2001-06-10','CAAS', 2.6, 'just testing'); 
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(stname,stbdate,stcol,stgpa, description) VALUES
+('Salim', '2001-06-10','CAAS', ' at line 1
+mysql> delete from student where stid=4;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from student;
++------+--------+------------+-------+-------+--------------+---------------------+
+| stid | stname | stbdate    | stcol | stgpa | description  | created_at          |
++------+--------+------------+-------+-------+--------------+---------------------+
+|    1 | Nasser | 2000-01-01 | CAAS  | 0.999 | just testing | 2019-10-31 09:30:49 |
+|    2 | Salim  | 2001-06-10 | CAAS  | 0.999 | just testing | 2019-10-31 09:33:52 |
+|    3 | Fatima | 2004-05-01 | CAAS  | 0.999 | just testing | 2019-10-31 09:33:52 |
+|    5 | Salim  | 2001-06-10 | CAAS  | 0.999 | just testing | 2019-10-31 09:34:02 |
+|    6 | Fatima | 2004-05-01 | CAAS  | 0.999 | just testing | 2019-10-31 09:34:02 |
+|    7 | Muna   | 2004-05-06 | CAAS  | 0.999 | just testing | 2019-10-31 09:34:02 |
++------+--------+------------+-------+-------+--------------+---------------------+
+6 rows in set (0.00 sec)
+
+mysql> delete from student where stid>3;
+Query OK, 3 rows affected (0.01 sec)
+
+mysql> select * from student;
++------+--------+------------+-------+-------+--------------+---------------------+
+| stid | stname | stbdate    | stcol | stgpa | description  | created_at          |
++------+--------+------------+-------+-------+--------------+---------------------+
+|    1 | Nasser | 2000-01-01 | CAAS  | 0.999 | just testing | 2019-10-31 09:30:49 |
+|    2 | Salim  | 2001-06-10 | CAAS  | 0.999 | just testing | 2019-10-31 09:33:52 |
+|    3 | Fatima | 2004-05-01 | CAAS  | 0.999 | just testing | 2019-10-31 09:33:52 |
++------+--------+------------+-------+-------+--------------+---------------------+
+3 rows in set (0.00 sec)
+
+mysql> delete from student where stid in(3,2);
+Query OK, 2 rows affected (0.01 sec)
+
+mysql>  select * from student;
++------+--------+------------+-------+-------+--------------+---------------------+
+| stid | stname | stbdate    | stcol | stgpa | description  | created_at          |
++------+--------+------------+-------+-------+--------------+---------------------+
+|    1 | Nasser | 2000-01-01 | CAAS  | 0.999 | just testing | 2019-10-31 09:30:49 |
++------+--------+------------+-------+-------+--------------+---------------------+
+1 row in set (0.00 sec)
+
+mysql> delete from student where stid=4;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> 
+mysql> Query OK, 1 row affected (0.02 sec)
+    -> 
+    -> mysql> delete from student where stid=4;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Query OK, 1 row affected (0.02 sec)
+
+mysql> delete from student where stid=4' at line 1
+mysql> 
+mysql> CREATE TABLE IF NOT EXISTS student (
+    -> stid INT(8) AUTO_INCREMENT PRIMARY KEY, 
+    -> stname VARCHAR(255) NOT NULL, 
+    -> stbdate DATE, 
+    -> stcol VARCHAR(255) NOT NULL, 
+    -> stgpa DECIMAL(3,3) NOT NULL, 
+    -> description TEXT, 
+    -> created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    -> );
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+
+mysql> select * from student;
++------+--------+------------+-------+-------+--------------+---------------------+
+| stid | stname | stbdate    | stcol | stgpa | description  | created_at          |
++------+--------+------------+-------+-------+--------------+---------------------+
+|    1 | Nasser | 2000-01-01 | CAAS  | 0.999 | just testing | 2019-10-31 09:30:49 |
++------+--------+------------+-------+-------+--------------+---------------------+
+1 row in set (0.01 sec)
+
+mysql> delete from student where stid=1;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> show tables;
++--------------------------+
+| Tables_in_mahmood99$mydb |
++--------------------------+
+| student                  |
++--------------------------+
+1 row in set (0.00 sec)
+
+mysql> CREATE TABLE IF NOT EXISTS student (
+    -> stid INT(8) AUTO_INCREMENT PRIMARY KEY, 
+    -> stname VARCHAR(255) NOT NULL, 
+    -> stbdate DATE, 
+    -> stcol VARCHAR(255) NOT NULL, 
+    -> stgpa DECIMAL(3,3) NOT NULL, 
+    -> description TEXT, 
+    -> created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    -> );
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+
+mysql> select * from student;
+Empty set (0.00 sec)
+
+mysql> INSERT INTO student(stname,stbdate,stcol,stgpa, description) VALUES('Nasser','2000-01-01','CAAS',3.89,'just testing');
+Query OK, 1 row affected, 1 warning (0.01 sec)
+
+mysql> select * from student;
++------+--------+------------+-------+-------+--------------+---------------------+
+| stid | stname | stbdate    | stcol | stgpa | description  | created_at          |
++------+--------+------------+-------+-------+--------------+---------------------+
+|    8 | Nasser | 2000-01-01 | CAAS  | 0.999 | just testing | 2019-10-31 09:49:59 |
++------+--------+------------+-------+-------+--------------+---------------------+
+1 row in set (0.01 sec)
+
+mysql> INSERT INTO student(stname,stbdate,stcol,stgpa, description) VALUES
+    -> ('Salim', '2001-06-10','CAAS', 2.6, 'just testing'), 
+    -> ('Fatima', '2004-05-01','CAAS', 3.00, 'just testing'), 
+    -> ('Muna', '2004-05-06','CAAS' , 3.5, 'just testing');
+Query OK, 3 rows affected, 3 warnings (0.00 sec)
+Records: 3  Duplicates: 0  Warnings: 3
+
+mysql> select * from student;
++------+--------+------------+-------+-------+--------------+---------------------+
+| stid | stname | stbdate    | stcol | stgpa | description  | created_at          |
++------+--------+------------+-------+-------+--------------+---------------------+
+|    8 | Nasser | 2000-01-01 | CAAS  | 0.999 | just testing | 2019-10-31 09:49:59 |
+|    9 | Salim  | 2001-06-10 | CAAS  | 0.999 | just testing | 2019-10-31 09:51:58 |
+|   10 | Fatima | 2004-05-01 | CAAS  | 0.999 | just testing | 2019-10-31 09:51:58 |
+|   11 | Muna   | 2004-05-06 | CAAS  | 0.999 | just testing | 2019-10-31 09:51:58 |
++------+--------+------------+-------+-------+--------------+---------------------+
+4 rows in set (0.00 sec)
+
+mysql> delete from student where stname like  '%s%';
+Query OK, 2 rows affected (0.01 sec)
+
+mysql> select * from student;
++------+--------+------------+-------+-------+--------------+---------------------+
+| stid | stname | stbdate    | stcol | stgpa | description  | created_at          |
++------+--------+------------+-------+-------+--------------+---------------------+
+|   10 | Fatima | 2004-05-01 | CAAS  | 0.999 | just testing | 2019-10-31 09:51:58 |
+|   11 | Muna   | 2004-05-06 | CAAS  | 0.999 | just testing | 2019-10-31 09:51:58 |
++------+--------+------------+-------+-------+--------------+---------------------+
+2 rows in set (0.01 sec)
+mysql> 

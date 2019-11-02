@@ -1,0 +1,76 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\Users\m201300762\Desktop\stl> git clone https://github.com/Mahmood-alnasiri/hello-world.git
+Cloning into 'hello-world'...
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (6/6), done.
+remote: Total 7 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (7/7), done.
+PS C:\Users\m201300762\Desktop\stl> cd hello-world
+PS C:\Users\m201300762\Desktop\stl\hello-world> git branch -a
+* master
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/master
+PS C:\Users\m201300762\Desktop\stl\hello-world> git branch new
+PS C:\Users\m201300762\Desktop\stl\hello-world> git branch -a
+* master
+  new
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/master
+PS C:\Users\m201300762\Desktop\stl\hello-world> git checkout new
+Switched to branch 'new'
+PS C:\Users\m201300762\Desktop\stl\hello-world> git branch -a
+  master
+* new
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/master
+PS C:\Users\m201300762\Desktop\stl\hello-world> git status
+On branch new
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   mm.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+PS C:\Users\m201300762\Desktop\stl\hello-world> git add .
+PS C:\Users\m201300762\Desktop\stl\hello-world> git status
+On branch new
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   mm.txt
+
+PS C:\Users\m201300762\Desktop\stl\hello-world> git status
+On branch new
+nothing to commit, working tree clean
+PS C:\Users\m201300762\Desktop\stl\hello-world> git branch -a
+  master
+* new
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/master
+PS C:\Users\m201300762\Desktop\stl\hello-world> git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+PS C:\Users\m201300762\Desktop\stl\hello-world> git merge new
+Updating e33de09..3ec5ddf
+Fast-forward
+ mm.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 mm.txt
+PS C:\Users\m201300762\Desktop\stl\hello-world> git branch -a
+* master
+  new
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/master
+PS C:\Users\m201300762\Desktop\stl\hello-world> git push origin master
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (6/6), 505 bytes | 505.00 KiB/s, done.
+Total 6 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 1 local object.
+To https://github.com/Mahmood-alnasiri/hello-world.git
+   e33de09..3ec5ddf  master -> master
+PS C:\Users\m201300762\Desktop\stl\hello-world>

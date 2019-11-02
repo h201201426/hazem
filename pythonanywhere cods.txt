@@ -1,0 +1,35 @@
+
+                                                      mahmood94
+
+
+
+
+09:43 ~ $ mkvirtualenv --python=/usr/bin/python3.7 mypro1
+
+(mypro1) 09:44 ~ $ ls
+README.txt  img
+(mypro1) 09:45 ~ $ workon mypro1      //if i wanted to move into mypro1
+(mypro1) 09:46 ~ $ ls
+README.txt  img
+(mypro1) 09:47 ~ $ exit
+exit
+Console closed.
+
+ deactivate //to get out of the environment
+
+							installing the django
+
+
+
+09:51 ~ $ workon mypro1
+(mypro1) 09:51 ~ $ ls
+README.txt  img
+(mypro1) 09:51 ~ $ pip3 install django
+
+
+
+(mypro1) 09:55 ~ $  django-admin.py startproject pro1 .    (the (.) 
+(mypro1) 09:55 ~ $ ls
+README.txt  img  pro1
+(mypro1) 09:55 ~ $ 
+

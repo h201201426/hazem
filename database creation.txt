@@ -1,0 +1,43 @@
+mysql -u mahmood94 -h mahmood94.mysql.pythonanywhere-services.com -p
+Enter password: 
+
+
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 269073221
+Server version: 5.6.40-log Source distribution
+Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+
+mysql> show databases;
+
+
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mahmood94$default  |
+| mahmood94$mydb     |
++--------------------+
+3 rows in set (2.03 sec)
+mysql> drop database mahmood94$mydb;                                                                                                                                                                             
+Query OK, 0 rows affected (0.00 sec)
+mysql> create database 
+
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mahmood94$default  |
++--------------------+
+2 rows in set (3.24 sec)
+mysql> use mahmood94$default  |
+Database changed
+mysql> create table naser(id int(3) , firstname varchare (3));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'varchare (3))' at line 1
+mysql> 

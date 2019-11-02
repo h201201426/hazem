@@ -1,0 +1,18 @@
+
+
+PS C:\Users\m201300762\Desktop\python 3> echo "# Mahmood" >> README.md
+PS C:\Users\m201300762\Desktop\python 3> git init
+Initialized empty Git repository in C:/Users/m201300762/Desktop/python 3/.git/
+PS C:\Users\m201300762\Desktop\python 3> git remote add origin https://github.com/Mahmood-alnasiri/Mahmood.git
+PS C:\Users\m201300762\Desktop\python 3> git push -u origin master
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (9/9), 739 bytes | 739.00 KiB/s, done.
+Total 9 (delta 3), reused 0 (delta 0)
+remote: Resolving deltas: 100% (3/3), done.
+To https://github.com/Mahmood-alnasiri/Mahmood.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+PS C:\Users\m201300762\Desktop\python 3>
